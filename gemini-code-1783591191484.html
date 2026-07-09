@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>मेरे दिल की बात... ❤️</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #ffe6e6, #ffb3b3);
+            font-family: 'Poppins', sans-serif;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 3px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 90%;
+            position: relative;
+        }
+
+        h1 {
+            color: #d63031;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            color: #4d4d4d;
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        .heart {
+            font-size: 50px;
+            color: #d63031;
+            animation: beat 1s infinite alternate;
+        }
+
+        @keyframes beat {
+            to { transform: scale(1.2); }
+        }
+
+        .btn-group {
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            height: 50px;
+            position: relative;
+        }
+
+        button {
+            padding: 12px 25px;
+            font-size: 18px;
+            font-weight: bold;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        #yesBtn {
+            background-color: #2ecc71;
+            color: white;
+        }
+
+        #yesBtn:hover {
+            background-color: #27ae60;
+            transform: scale(1.1);
+        }
+
+        #noBtn {
+            background-color: #e74c3c;
+            color: white;
+            position: absolute;
+        }
+
+        /* सक्सेस मैसेज स्टाइल */
+        .success-message {
+            display: none;
+        }
+
+        .success-message h2 {
+            color: #27ae60;
+            font-size: 28px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container" id="mainContainer">
+        <div class="heart">❤️</div>
+        <h1>सुनो ना... ✨</h1>
+        <p>जब से तुम मेरी ज़िंदगी में आई हो, सब कुछ बदल गया है। मैं अपनी पूरी ज़िंदगी तुम्हारे साथ बिताना चाहता हूँ।</p>
+        <p><strong>क्या तुम मुझसे शादी करोगी? / क्या तुम मेरी पार्टनर बनोगी?</strong></p>
+        
+        <div class="btn-group">
+            <button id="yesBtn" onclick="sayYes()">हाँ (Yes) 🥰</button>
+            <button id="noBtn" onmouseover="moveButton()" onclick="moveButton()">ना (No) 😢</button>
+        </div>
+    </div>
+
+    <div class="container success-message" id="successContainer">
+        <div class="heart">💖🎉</div>
+        <h2>I Knew It! 😍</h2>
+        <p>थैंक यू सो मच! तुमने मुझे दुनिया का सबसे खुशनसीब इंसान बना दिया। Love you forever! ♾️</p>
+    </div>
+
+    <script>
+        // "No" बटन को दूर भगाने का फंक्शन
+        function moveButton() {
+            const noBtn = document.getElementById('noBtn');
+            const container = document.getElementById('mainContainer');
+            
+            // कंटेनर की सीमाएं देखना ताकि बटन स्क्रीन से बाहर न जाए
+            const padding = 20;
+            const maxX = container.clientWidth - noBtn.clientWidth - padding;
+            const maxY = container.clientHeight - noBtn.clientHeight - padding;
+            
+            // रैंडम पोजीशन कैलकुलेट करना
+            const randomX = Math.floor(Math.random() * maxX);
+            const randomY = Math.floor(Math.random() * maxY);
+            
+            noBtn.style.left = randomX + 'px';
+            noBtn.style.top = randomY + 'px';
+        }
+
+        // "Yes" बटन दबाने पर क्या होगा
+        function sayYes() {
+            document.getElementById('mainContainer').style.display = 'none';
+            document.getElementById('successContainer').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
