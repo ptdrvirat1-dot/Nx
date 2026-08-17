@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="hi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#12355b">
+<title>मांडवा भैरा भाई | ग्रामीण बैठक</title>
+<link rel="stylesheet" href="style.css?v=4">
+</head>
+<body>
+<header class="hero"><div class="hero-in">
+  <div class="brand"><div class="logo">म</div><div><h1>मांडवा भैरा भाई</h1><p>ग्रामीण सामाजिक बैठक प्रबंधन</p></div></div>
+  <button id="themeBtn" class="icon-btn">☾</button>
+</div></header>
+
+<main class="wrap">
+<section class="welcome">
+ <div><span class="tag">डिजिटल रजिस्टर</span><h2>हाजिरी और जुर्माना एक ही जगह</h2><p>हर महीने 2 बैठकें • अनुपस्थित रहने पर ₹30 जुर्माना</p></div>
+ <div class="pick"><label>महीना<input id="month" type="month"></label><label>बैठक<select id="meeting"><option value="1">बैठक 1</option><option value="2">बैठक 2</option></select></label></div>
+</section>
+
+<section class="stats">
+ <div class="stat"><span>कुल व्यक्ति</span><b id="total">0</b><em>👥</em></div>
+ <div class="stat"><span>उपस्थित</span><b id="present">0</b><em>✓</em></div>
+ <div class="stat"><span>अनुपस्थित</span><b id="absent">0</b><em>!</em></div>
+ <div class="stat fine"><span>इस बैठक का जुर्माना</span><b id="meetingFine">₹0</b><em>₹</em></div>
+ <div class="stat fine"><span>इस महीने का जुर्माना</span><b id="monthFine">₹0</b><em>₹</em></div>
+ <div class="stat fine"><span>कुल दर्ज जुर्माना</span><b id="allFine">₹0</b><em>₹</em></div>
+</section>
+
+<section class="card">
+ <div class="title"><div><span class="tag">नया रिकॉर्ड</span><h3>व्यक्ति की जानकारी</h3></div><button id="resetBtn" class="light-btn">फॉर्म साफ करें</button></div>
+ <form id="personForm">
+  <input id="editId" type="hidden">
+  <div class="grid">
+   <label>क्रमांक<input id="serial" type="number" min="1" required placeholder="1"></label>
+   <label>नाम<input id="name" required placeholder="व्यक्ति का नाम"></label>
+   <label>पिता का नाम<input id="father" placeholder="पिता का नाम"></label>
+   <label>जन्मतिथि<input id="dob" type="date"></label>
+   <label>उम्र<input id="age" type="number" min="0" max="120" placeholder="उम्र"></label>
+   <label>बैठक किसके घर<input id="house" placeholder="घर मालिक का नाम"></label>
+   <label>इस बैठक की हाजिरी<select id="attendance"><option value="present">✓ उपस्थित — ₹0</option><option value="absent">✕ अनुपस्थित — ₹30 जुर्माना</option></select></label>
+  </div>
+  <div class="fine-preview"><span>इस बैठक का जुर्माना</span><b id="formFine">₹0</b></div>
+  <button class="primary" type="submit" id="saveBtn">＋ व्यक्ति जोड़ें</button>
+ </form>
+</section>
+
+<section class="card">
+ <div class="title"><div><span class="tag">रजिस्टर</span><h3>व्यक्तियों की सूची</h3><small id="meetingText"></small></div>
+ <div class="tools"><input id="search" placeholder="🔎 नाम या क्रमांक खोजें"><button id="exportBtn" class="light-btn">↓ CSV</button><button id="clearMeetingBtn" class="danger">बैठक डेटा हटाएँ</button></div></div>
+ <div class="table-wrap"><table><thead><tr><th>क्रमांक</th><th>नाम</th><th>पिता का नाम</th><th>जन्मतिथि</th><th>उम्र</th><th>बैठक का घर</th><th>हाजिरी</th><th>जुर्माना</th><th>कार्य</th></tr></thead><tbody id="peopleTable"></tbody></table></div>
+ <div id="emptyState" class="empty">अभी कोई व्यक्ति नहीं जोड़ा गया है।</div>
+</section>
+
+<section class="card">
+ <div class="title"><div><span class="tag">रिपोर्ट</span><h3>मासिक जुर्माना रिपोर्ट</h3></div><strong id="monthlyTotal">कुल: ₹0</strong></div>
+ <div class="table-wrap"><table><thead><tr><th>क्रमांक</th><th>नाम</th><th>बैठक 1</th><th>बैठक 2</th><th>महीने का जुर्माना</th></tr></thead><tbody id="monthlyTable"></tbody></table></div>
+</section>
+
+<section class="rule"><div class="rule-icon">₹30</div><div><h3>बैठक का नियम</h3><p>हर महीने 2 ग्रामीण बैठकें होंगी। प्रत्येक बैठक में अनुपस्थित रहने पर ₹30 जुर्माना लगेगा। दोनों बैठकों में अनुपस्थित रहने पर उस महीने का जुर्माना ₹60 होगा।</p></div></section>
+</main>
+<footer>© 2026 मांडवा भैरा भाई • ग्रामीण सामाजिक बैठक</footer>
+<script src="script.js?v=4" defer></script>
+</body>
+</html>
