@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>मांडवा भैरा भाई - सामाजिक बैठक हाजिरी</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <h1>मांडवा भैरा भाई</h1>
+      <p>सामाजिक बैठक हाजिरी प्रबंधन</p>
+    </div>
+    <button id="themeBtn" class="icon-btn" title="Theme">🌙</button>
+  </header>
+
+  <main class="container">
+    <section class="stats">
+      <div class="stat"><span>कुल व्यक्ति</span><strong id="totalCount">0</strong></div>
+      <div class="stat"><span>उपस्थित</span><strong id="presentCount">0</strong></div>
+      <div class="stat"><span>अनुपस्थित</span><strong id="absentCount">0</strong></div>
+    </section>
+
+    <section class="card">
+      <div class="section-head">
+        <h2>व्यक्ति की जानकारी</h2>
+        <button id="resetBtn" class="secondary">फॉर्म साफ करें</button>
+      </div>
+      <form id="personForm">
+        <input type="hidden" id="editId">
+        <div class="grid">
+          <label>क्रमांक
+            <input id="serial" type="number" min="1" required placeholder="जैसे 1">
+          </label>
+          <label>नाम
+            <input id="name" type="text" required placeholder="व्यक्ति का नाम">
+          </label>
+          <label>पिता का नाम
+            <input id="father" type="text" placeholder="पिता का नाम">
+          </label>
+          <label>जन्मतिथि
+            <input id="dob" type="date">
+          </label>
+          <label>उम्र
+            <input id="age" type="number" min="0" max="120" placeholder="उम्र">
+          </label>
+          <label>बैठक किसके घर
+            <input id="meetingHouse" type="text" placeholder="घर मालिक का नाम">
+          </label>
+          <label>हाजिरी
+            <select id="attendance">
+              <option value="present">उपस्थित</option>
+              <option value="absent">अनुपस्थित</option>
+            </select>
+          </label>
+        </div>
+        <button class="primary" type="submit" id="saveBtn">➕ व्यक्ति जोड़ें</button>
+      </form>
+    </section>
+
+    <section class="card">
+      <div class="section-head">
+        <h2>व्यक्तियों की सूची</h2>
+        <div class="actions">
+          <input id="search" type="search" placeholder="🔍 नाम या क्रमांक खोजें">
+          <button id="exportBtn" class="secondary">📥 CSV डाउनलोड</button>
+          <button id="clearAllBtn" class="danger">सारा डेटा हटाएँ</button>
+        </div>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>क्रमांक</th>
+              <th>नाम</th>
+              <th>पिता का नाम</th>
+              <th>जन्मतिथि</th>
+              <th>उम्र</th>
+              <th>बैठक का घर</th>
+              <th>हाजिरी</th>
+              <th>कार्य</th>
+            </tr>
+          </thead>
+          <tbody id="peopleTable"></tbody>
+        </table>
+      </div>
+      <p id="emptyState" class="empty">अभी कोई व्यक्ति नहीं जोड़ा गया है।</p>
+    </section>
+
+    <section class="card note">
+      <strong>ध्यान दें:</strong> यह संस्करण डेटा को आपके इसी ब्राउज़र/मोबाइल में सुरक्षित रखता है। अलग-अलग मोबाइलों में एक ही डेटा देखने के लिए बाद में Firebase/Supabase जैसा online database जोड़ना होगा।
+    </section>
+  </main>
+
+  <footer>© 2026 मांडवा भैरा भाई • सामाजिक बैठक</footer>
+  <script src="script.js"></script>
+</body>
+</html>
